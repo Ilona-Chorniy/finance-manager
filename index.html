@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyFlow</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <a href="./index.html" class="logo">Money<span class="logo-span">Flow</span></a>
+
+            <button type="button" class="btn-menu js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
+                <svg width="32" height="32" class="icon-menu">
+                    <use href="./icon/icons.svg#icon-burger" class="icon-logo"></use>
+                </svg>
+            </button>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="#how-it-works" class="nav-link">Головна</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#transaction-forms-wrapper" class="nav-link">Додати транзакцію</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#reviews" class="nav-link">Історія операцій</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#reviews" class="nav-link">Статистика</a>
+                    </li>
+                </ul>
+                <a href="#your-order" class="nav-shop-btn">Вхід</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <h1 class="hero-title">Новий рівень контролю <span class="main-span">фінансів</span></h1>
+                    <h2 class="budget-title">Відстежуйте доходи та витрати легко!</h2>
+                    <p class="hero-deskr">
+                        Наш сайт допомагає аналізувати фінансові потоки, керувати бюджетом і
+                        планувати майбутні витрати
+                    </p>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./images/diagram-money.png" alt="diagram-money">
+            </div>
+    </section>
+
+    <section class="highlights">
+        <h2 class="visually-hidden">Highlights</h2>
+        <div class="container">
+            <div class="highlights-container">
+                <div class="card">
+                    <svg width="24" height="24" class="icon">
+                        <use href="./icon/icons.svg#icon-banknote" class="icon-logo"></use>
+                    </svg>
+                    <h3 class="hcard">Контроль витрат</h3>
+                    <p class="cardopis">
+                        Аналізуйте свої витрати в режимі реального часу та знаходьте способи економії для досягнення
+                        фінансових цілей.
+                    </p>
+                </div>
+                <div class="card">
+                    <svg width="24" height="24" class="icon">
+                        <use href="./icon/icons.svg#icon-wallet" class="icon-logo"></use>
+                    </svg>
+                    <h3 class="hcard">Оптимізація бюджету</h3>
+                    <p class="cardopis">
+                        Плануйте фінанси, розподіляйте кошти ефективно та досягайте фінансової стабільності без зайвих
+                        зусиль.
+                    </p>
+                </div>
+                <div class="card">
+                    <svg width="24" height="24" class="icon">
+                        <use href="./icon/icons.svg#icon-bars" class="icon-logo"></use>
+                    </svg>
+                    <h3 class="hcard">Звіти та аналітика</h3>
+                    <p class="cardopis">
+                        Отримуйте детальні фінансові звіти, аналізуйте доходи та витрати, щоб приймати обґрунтовані
+                        фінансові рішення.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how_it_works" id="how-it-works">
+        <div class="how_it_works__container">
+            <div class="container container-works-images">
+
+                <img class="responsive-image" src="./images/image-1.png" alt="image-1" />
+            </div>
+            <div class="container container-works-list">
+                <div class="div-works-title">
+                    <h2 class="works-list-title">
+                        Керуйте своїми <span class="works-span">фінансами</span> легко та
+                        <span class="works-span">ефективно</span>
+                    </h2>
+                    <p class="works-text">
+                        Покращуйте свій фінансовий стан за допомогою розумного управління грошима. Наш сервіс допоможе
+                        вам аналізувати витрати,
+                        планувати бюджет та досягати фінансових цілей без зайвих зусиль.
+                    </p>
+                </div>
+                <ol class="ol-works-list">
+                    <li class="li-works-list">
+                        <div class="text-works-container">
+                            Вносьте фінансові дані – <span class="span-works-list">реєструйте доходи, витрати</span> та
+                            заощадження для повного контролю над бюджетом.
+                        </div>
+                    </li>
+                    <li class="li-works-list">
+                        <div class="text-works-container">
+                            Досягайте <span class="span-works-list">фінансових цілей швидше - </span> встановлюйте
+                            фінансові пріоритети та відстежуйте їх досягнення.
+                        </div>
+                    </li>
+                    <li class="li-works-list">
+                        <div class="text-works-container">
+                            Sit back and relax! Your
+                            <span class="span-works-list">fresh vegetables</span> basket will be
+                            delivered.
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="transaction-forms-wrapper" id="transaction-forms-wrapper">
+        <div class="transaction-form">
+            <h2>Додати витрату</h2>
+            <form id="expenseForm">
+                <div>
+                    <label for="expenseAmount">Сума:</label>
+                    <input type="number" id="expenseAmount" name="amount" required placeholder="Введіть суму витрати" />
+                </div>
+                <div>
+                    <label for="expenseDescription">Опис:</label>
+                    <textarea id="expenseDescription" name="description" rows="4" required
+                        placeholder="Введіть опис витрати"></textarea>
+                </div>
+                <div>
+                    <label for="expenseDate">Дата:</label>
+                    <input type="date" id="expenseDate" name="date" required />
+                </div>
+                <div>
+                    <label for="expenseCategory">Категорія:</label>
+                    <select id="expenseCategory" name="category" required>
+                        <option value="food">Їжа</option>
+                        <option value="transport">Транспорт</option>
+                        <option value="entertainment">Розваги</option>
+                        <option value="shopping">Шопінг</option>
+                        <option value="bills">Платежі</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-button">Додати витрату</button>
+            </form>
+        </div>
+
+        <div class="transaction-form">
+            <h2>Додати дохід</h2>
+            <form id="incomeForm">
+                <div>
+                    <label for="incomeAmount">Сума:</label>
+                    <input type="number" id="incomeAmount" name="amount" required placeholder="Введіть суму доходу" />
+                </div>
+                <div>
+                    <label for="incomeDescription">Опис:</label>
+                    <textarea id="incomeDescription" name="description" rows="4" required
+                        placeholder="Введіть опис доходу"></textarea>
+                </div>
+                <div>
+                    <label for="incomeDate">Дата:</label>
+                    <input type="date" id="incomeDate" name="date" required />
+                </div>
+                <div>
+                    <label for="incomeCategory">Категорія:</label>
+                    <select id="incomeCategory" name="category" required>
+                        <option value="salary">Зарплата</option>
+                        <option value="bonus">Бонус</option>
+                        <option value="gift">Подарунок</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-button">Додати дохід</button>
+            </form>
+        </div>
+
+    </section>
+    <section class="transaction-history">
+        <h2>Історія операцій</h2>
+        <table id="transactionHistory">
+            <thead>
+                <tr>
+                    <th>Тип</th>
+                    <th>Сума</th>
+                    <th>Опис</th>
+                    <th>Дата</th>
+                    <th>Категорія</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Тут будуть відображатись записи -->
+            </tbody>
+        </table>
+    </section>
+
+    <section class="statistics-section">
+        <h2>Статистика</h2>
+        <p>Ця діаграма показує, скільки грошей ви витратили в кожній категорії. Це допоможе вам краще розуміти, куди
+            йдуть
+            ваші кошти та управляти своїм бюджетом.</p>
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </section>
+
+
+    <div class="overlay js-menu-container" id="mobile-menu">
+        <div class="mobile-menu">
+            <div class="container mobile-menu-container">
+                <button class="mobile-menu-close js-close-menu">
+                    <svg class="mobile-close-svg" width="24" height="24">
+                        <use href="./icon/icons.svg#icon-close"></use>
+                    </svg>
+                </button>
+                <nav class="mobile-menu-nav">
+                    <ul class="mobile-menu-list">
+                        <li class="mobile-menu-item">
+                            <a href="#how-it-works" class="mobile-menu-link" href="">Головна</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#transaction-forms-wrapper" class="mobile-menu-link" href="">Додати транзакцію</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#reviews" class="mobile-menu-link" href="">Історія операцій</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#reviews" class="mobile-menu-link" href="">Статистика</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a class="shop" href="#your-order">Вхід</a>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
