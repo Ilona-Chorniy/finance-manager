@@ -41,7 +41,7 @@ html {
 }
 
 body {
-    /* font-family: 'Inter Tight', sans-serif; */
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     color: #fbfbfb;
     background: linear-gradient(to right, #00040F, #2ccee0);
@@ -121,6 +121,7 @@ body {
 .header-container {
     display: flex;
     align-items: center;
+    padding: 5px;
 }
 
 .nav {
@@ -451,9 +452,6 @@ button:hover {
     margin-top: 40px;
 }
 
-/* !MEDIA QUERIES */
-
-
 @media only screen and (min-width: 768px) {
 
     .transaction-form {
@@ -499,10 +497,10 @@ button:hover {
 
 /* !HISTORY */
 .transaction-history {
-    background: linear-gradient(to bottom, #1b1794 35%, #0e6973 50%, #149b88 65%);
+    /* background: linear-gradient(to bottom, #1b1794 35%, #0e6973 50%, #149b88 65%); */
     padding: 60px 0;
     overflow-x: auto;
-    /* Додає скрол, якщо потрібно */
+   
 }
 
 .transaction-history h2 {
@@ -517,7 +515,6 @@ button:hover {
 
 #transactionHistory {
     max-width: 100%;
-    /* Забороняє вихід за межі */
     min-width: 320px;
     margin: 0 auto;
     border-collapse: collapse;
@@ -589,10 +586,16 @@ button:hover {
 
 /* !STATISTICS SECTION */
 .statistics-section {
-    background-color: #96dcf4;
+    background-color: #0E6973;
     padding: 60px 20px;
     color: #fff;
     text-align: center;
+   
+}
+
+
+#expenseChart{
+    color: #000712;
 }
 
 .statistics-section h2 {
@@ -643,46 +646,6 @@ button:hover {
     #transactionHistory td {
         font-size: 14px;
         padding: 8px;
-    }
-}
-
-/* !STATISTICS SECTION */
-.statistics-section {
-    background-color: #96dcf4;
-    padding: 60px 20px;
-    color: #fff;
-    text-align: center;
-}
-
-.statistics-section h2 {
-    font-size: 36px;
-    font-weight: 600;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.statistics-section p {
-    font-size: 18px;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.chart-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-@media (min-width: 768px) {
-    .statistics-section h2 {
-        font-size: 48px;
-    }
-
-    .statistics-section p {
-        font-size: 20px;
     }
 }
 
@@ -756,7 +719,7 @@ button:hover {
     flex-direction: column;
     margin-top: 40px;
     font-size: 14px;
-    color: #b0b0b0;
+    color: #fbfbfb;
 
 }
 
@@ -767,7 +730,7 @@ button:hover {
 
 .copyright {
     margin-top: 16px;
-    color: #b0b0b0;
+    color: #fbfbfb;
 }
 
 @media screen and (min-width: 768px) {
@@ -1020,3 +983,6 @@ canvas {
     width: 100% !important;
     height: auto !important;
 }
+
+/* Кнопка */
+

@@ -41,6 +41,7 @@ html {
 }
 
 body {
+    font-family: 'Inter', sans-serif;
     font-weight: 500;
     color: #fbfbfb;
     background: linear-gradient(to right, #00040F, #2ccee0);
@@ -120,6 +121,7 @@ body {
 .header-container {
     display: flex;
     align-items: center;
+    padding: 5px;
 }
 
 .nav {
@@ -134,6 +136,7 @@ body {
     cursor: pointer;
     height: 32px;
     min-width: 32px;
+    
 }
 
 @media screen and (min-width: 768px) {
@@ -431,7 +434,8 @@ body {
 
 /* !how-its */
 .how_it_works {
-    background-color: #c7f6fe;
+
+    background: linear-gradient(to right, #122250, #548a9a);
 }
 
 .container-works-images {
@@ -467,7 +471,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     gap: 40px;
-    background: #6ac8d0;
+    background: #548a9a;
     width: 100%;
     min-width: 320px;
     max-width: 375px;
@@ -492,7 +496,7 @@ body {
 }
 
 .works-span {
-    color: #1b1794;
+    color: #132555;
 }
 
 .works-text {
@@ -939,7 +943,7 @@ body {
     flex-direction: column;
     margin-top: 40px;
     font-size: 14px;
-    color: #b0b0b0;
+    color: #fbfbfb;
 
 }
 
@@ -950,7 +954,7 @@ body {
 
 .copyright {
     margin-top: 16px;
-    color: #b0b0b0;
+    color: #fbfbfb;
 }
 
 @media screen and (min-width: 768px) {
@@ -1194,10 +1198,10 @@ body {
 
 
 /* Модалка входу */
-/* Основний стиль для модалки */
+
 .modal {
     display: none;
-    /* Сховуємо модалку за замовчуванням */
+    
     position: fixed;
     top: 0;
     left: 0;
@@ -1208,20 +1212,19 @@ body {
     justify-content: center;
     transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out;
     z-index: 1000;
-    /* Задаємо високий z-index, щоб модалка була зверху */
+
 }
 
-/* Стиль для модалки, коли вона відкрита */
 .modal.is-open {
     display: flex;
-    /* Відображаємо модалку */
+   
     opacity: 1;
-    /* Задаємо повну видимість */
+   
     visibility: visible;
-    /* Робимо модалку видимою */
+   
 }
 
-/* Стиль для вхідних полів модалки */
+
 .modal-body input {
     display: block;
     width: 100%;
@@ -1230,23 +1233,21 @@ body {
     font-size: 14px;
     border-radius: 4px;
     outline: none;
-    border: 1px solid #ddd;
-    /* Базова рамка для полів */
+   
 }
 
-/* Стиль для коректних значень полів */
+
 .modal-body input:valid {
     border-color: #4CAF50;
     background-color: #e8f5e9;
 }
 
-/* Стиль для некоректних значень полів */
+
 .modal-body input:invalid {
     border-color: #f44336;
     background-color: #fce4ec;
 }
 
-/* Стиль для контенту модалки */
 .modal-content {
     background: linear-gradient(to right, #0d1465, #2ccee0);
     padding: 24px;
@@ -1259,7 +1260,7 @@ body {
     transition: transform 250ms ease-in-out;
 }
 
-/* Стиль для кнопки закриття */
+
 .modal-close {
     position: absolute;
     top: 16px;
@@ -1277,21 +1278,21 @@ body {
     color: #0d1465;
 }
 
-/* Стиль для заголовка модалки */
+
 .modal-header {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 16px;
 }
 
-/* Стиль для тіла модалки */
+
 .modal-body {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 24px;
 }
 
-/* Стиль для кнопки в модалці */
+
 .modal-button {
     background-color: #0d1465;
     color: #fbfbfb;
@@ -1304,9 +1305,12 @@ body {
     transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
 }
 
-/* Стиль для кнопки при ховері та фокусі */
+
 .modal-button:hover,
 .modal-button:focus {
     background-color: #fbfbfb;
     color: #0d1465;
 }
+
+
+/* Кнопка */

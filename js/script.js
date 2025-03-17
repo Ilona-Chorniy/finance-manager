@@ -138,6 +138,9 @@ document.addEventListener("DOMContentLoaded", function () {
             plugins: {
                 legend: {
                     position: 'top',
+                     labels: {
+                color: '#fff'
+            }
                 },
                 tooltip: {
                     callbacks: {
@@ -150,32 +153,43 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Ініціалізація стовпчастої діаграми доходів
-    const incomeCtx = document.getElementById("incomeChart").getContext("2d");
-    const incomeChart = new Chart(incomeCtx, {
-        type: "bar",
-        data: {
-            labels: Object.keys(incomeCategoryCounts),
-            datasets: [{
-                label: "Доходи",
-                data: Object.values(incomeCategoryCounts),
-                backgroundColor: Object.values(incomeColors), // Додаємо кольори
-                borderColor: "#ffffff",
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: { beginAtZero: true }
+// Ініціалізація стовпчастої діаграми доходів
+const incomeCtx = document.getElementById("incomeChart").getContext("2d");
+const incomeChart = new Chart(incomeCtx, {
+    type: "bar",
+    data: {
+        labels: Object.keys(incomeCategoryCounts),
+        datasets: [{
+            label: "Доходи",
+            data: Object.values(incomeCategoryCounts),
+            backgroundColor: Object.values(incomeColors), // Додаємо кольори
+            borderColor: "#ffffff",
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    color: '#ffffff' // Колір тексту на осі Y
+                }
             },
-            plugins: {
-                legend: {
-                    display: false
+            x: {
+                ticks: {
+                    color: '#ffffff' // Колір тексту на осі X
                 }
             }
+        },
+        plugins: {
+            legend: {
+                display: false
+            }
         }
-    });
+    }
+});
+
 
     // Обробник форми для витрат
     const expenseForm = document.getElementById("expenseForm");
@@ -187,10 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const date = document.getElementById("expenseDate").value;
         const category = document.getElementById("expenseCategory").value;
 
-        if (isNaN(amount) || amount <= 0 || !description || !date || !category) {
-            alert("Будь ласка, заповніть всі поля правильно!");
-            return;
-        }
+    
 
         // Зберігаємо транзакцію
         transactionHistory.push({ type: "Витрата", amount, description, date, category });
@@ -219,10 +230,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const date = document.getElementById("incomeDate").value;
         const category = document.getElementById("incomeCategory").value;
 
-        if (isNaN(amount) || amount <= 0 || !description || !date || !category) {
-            alert("Будь ласка, заповніть всі поля правильно!");
-            return;
-        }
 
         // Зберігаємо транзакцію
         transactionHistory.push({ type: "Дохід", amount, description, date, category });
@@ -245,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function addTransactionToHistory(type, amount, description, date, category) {
         const tableBody = document.querySelector("#transactionHistory tbody");
         const row = document.createElement("tr");
-        row.innerHTML = `
+        row.innerHTML = ` 
             <td>${type}</td>
             <td>${amount} грн</td>
             <td>${description}</td>
