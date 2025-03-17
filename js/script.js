@@ -1,219 +1,207 @@
-(() => {
-  const mobileMenu = document.querySelector('.js-menu-container');
-  const openMenuBtn = document.querySelector('.js-open-menu');
-  const closeMenuBtn = document.querySelector('.js-close-menu');
+// !МОДАЛКА
 
-  const toggleMenu = () => {
-    const anchors = mobileMenu.querySelectorAll('a[href*="#"]');
-    const isMenuOpen =
-      openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.classList.toggle('is-open');
 
-    const scrollLockMethod = !isMenuOpen
-      ? 'disableBodyScroll'
-      : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
+document.addEventListener("DOMContentLoaded", function () {
+    const menuContainer = document.querySelector(".js-menu-container");
+    const openMenuBtn = document.querySelector(".js-open-menu");
+    const closeMenuBtn = document.querySelector(".js-close-menu");
+    const menuLinks = document.querySelectorAll(".mobile-menu-link");
 
-    if (anchors.length === 0) return;
-
-    if (!isMenuOpen) {
-      anchors.forEach(anchor => {
-        anchor.addEventListener("click", toggleMenu);
-      });
-      return;
+    function toggleMenu() {
+        menuContainer.classList.toggle("is-open");
     }
 
-    anchors.forEach(anchor => {
-      anchor.removeEventListener("click", toggleMenu);
-    });
-  };
+    openMenuBtn?.addEventListener("click", toggleMenu);
+    closeMenuBtn?.addEventListener("click", toggleMenu);
 
-  openMenuBtn.addEventListener('click', toggleMenu);
-  closeMenuBtn.addEventListener('click', toggleMenu);
+    menuLinks.forEach(link => {
+        link.addEventListener("click", function (event) {
+            // Отримуємо ID секції, на яку потрібно перейти
+            const targetId = link.getAttribute("href").substring(1); // Виключаємо "#" з href
+            const targetSection = document.getElementById(targetId);
 
-  window.matchMedia('(min-width: 1280px)').addEventListener('change', e => {
-    if (!e.matches) return;
-    mobileMenu.classList.remove('is-open');
-    openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
-  });
+            if (targetSection) {
+                // Закриваємо меню
+                menuContainer.classList.remove("is-open");
 
-  window.matchMedia('(min-width: 375px)').addEventListener('change', e => {
-    if (!e.matches) return;
-    mobileMenu.classList.remove('is-open');
-    openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
-  });
-})();
-
-// Масив для зберігання операцій
-const transactions = []; 
-
-// Створюємо змінну для збереження діаграми
-let expenseChart = null;
-
-// Форма витрат
-document.getElementById('expenseForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  const amount = document.getElementById('expenseAmount').value;
-  const description = document.getElementById('expenseDescription').value;
-  const date = document.getElementById('expenseDate').value;
-  const category = document.getElementById('expenseCategory').value;
-
-  const transaction = {
-    type: 'Витрата',
-    amount: parseFloat(amount), // Перетворюємо суму на число
-    description: description,
-    date: date,
-    category: category
-  };
-
-  addTransactionToHistory(transaction);
-  updateExpenseChart(); // Оновлюємо діаграму після додавання витрати
-});
-
-// Форма доходу
-document.getElementById('incomeForm').addEventListener('submit', function (event) {
-  event.preventDefault();
-
-  const amount = document.getElementById('incomeAmount').value;
-  const description = document.getElementById('incomeDescription').value;
-  const date = document.getElementById('incomeDate').value;
-  const category = document.getElementById('incomeCategory').value;
-
-  const transaction = {
-    type: 'Дохід',
-    amount: parseFloat(amount),
-    description: description,
-    date: date,
-    category: category
-  };
-
-  addTransactionToHistory(transaction);
-  updateExpenseChart(); // Оновлюємо діаграму після додавання доходу
-});
-
-// Функція для додавання операцій в історію
-function addTransactionToHistory(transaction) {
-  const historyTable = document.getElementById('transactionHistory').getElementsByTagName('tbody')[0];
-  const newRow = historyTable.insertRow();
-
-  newRow.insertCell(0).textContent = transaction.type;
-  newRow.insertCell(1).textContent = transaction.amount;
-  newRow.insertCell(2).textContent = transaction.description;
-  newRow.insertCell(3).textContent = transaction.date;
-  newRow.insertCell(4).textContent = transaction.category;
-
-  transactions.push(transaction); // Додаємо операцію до масиву
-}
-
-// Функція для оновлення діаграми на основі введених даних
-function updateExpenseChart() {
-  // Очищаємо існуючі дані по категоріях
-  const categoryTotals = {
-    food: 0,
-    transport: 0,
-    entertainment: 0,
-    shopping: 0,
-    bills: 0,
-    other: 0
-  };
-
-  const incomeTotals = {
-    food: 0,
-    transport: 0,
-    entertainment: 0,
-    shopping: 0,
-    bills: 0,
-    other: 0
-  };
-
-  // Підсумовуємо витрати і доходи по категоріях
-  transactions.forEach(transaction => {
-    if (transaction.type === 'Витрата') {
-      categoryTotals[transaction.category] += transaction.amount;
-    } else if (transaction.type === 'Дохід') {
-      incomeTotals[transaction.category] += transaction.amount;
-    }
-  });
-
-  // Оновлюємо дані для діаграми
-  const chartData = [
-    categoryTotals.food,
-    categoryTotals.transport,
-    categoryTotals.entertainment,
-    categoryTotals.shopping,
-    categoryTotals.bills,
-    categoryTotals.other
-  ];
-
-  const incomeChartData = [
-    incomeTotals.food,
-    incomeTotals.transport,
-    incomeTotals.entertainment,
-    incomeTotals.shopping,
-    incomeTotals.bills,
-    incomeTotals.other
-  ];
-
-  // Якщо діаграма ще не була створена, створюємо її
-  if (!expenseChart) {
-    const ctx = document.getElementById('expenseChart').getContext('2d');
-    expenseChart = new Chart(ctx, {
-      type: 'pie', // Тип діаграми
-      data: {
-        labels: ['Їжа', 'Транспорт', 'Розваги', 'Шопінг', 'Платежі', 'Інше'], // Категорії витрат
-        datasets: [{
-          label: 'Витрати за категоріями',
-          data: chartData, // Дані витрат по категоріях
-          backgroundColor: [
-            '#ff5733',
-            '#33c9ff',
-            '#75ff33',
-            '#f5e233',
-            '#e033d7',
-            '#33d7a2'
-          ],
-          borderColor: '#fff',
-          borderWidth: 2
-        },
-        {
-          label: 'Доходи за категоріями',
-          data: incomeChartData, // Дані доходів по категоріях
-          backgroundColor: [
-            '#ff9b9b',
-            '#9be6ff',
-            '#b0ff9b',
-            '#f6f9b9',
-            '#e9b9ff',
-            '#9be8d0'
-          ],
-          borderColor: '#fff',
-          borderWidth: 2
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top',
-          },
-          tooltip: {
-            callbacks: {
-              label: function (tooltipItem) {
-                return tooltipItem.label + ': ' + tooltipItem.raw + ' грн';
-              }
+                // Плавно прокручуємо до секції
+                window.scrollTo({
+                    top: targetSection.offsetTop, // Позиція секції
+                    behavior: "smooth" // Плавний скролінг
+                });
             }
-          }
-        }
-      }
+        });
     });
-  } else {
-    // Якщо діаграма вже існує, оновлюємо тільки її дані
-    expenseChart.data.datasets[0].data = chartData;
-    expenseChart.data.datasets[1].data = incomeChartData;
-    expenseChart.update(); // Оновлюємо діаграму
-  }
-}
+});
+
+
+////Модалка входу 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loginModal = document.querySelector(".js-login-modal");
+    const openLoginBtn = document.querySelector(".js-open-login");
+    const closeLoginBtn = document.querySelector(".js-close-login");
+
+    function toggleLoginModal() {
+        loginModal.classList.toggle("is-open"); // Додаємо або видаляємо клас is-open
+    }
+
+    openLoginBtn.addEventListener("click", function (event) {
+        event.preventDefault();
+        toggleLoginModal();
+    });
+
+    closeLoginBtn.addEventListener("click", toggleLoginModal);
+
+    window.addEventListener("click", function (event) {
+        if (event.target === loginModal) {
+            toggleLoginModal();
+        }
+    });
+
+    // Додаємо обробник для відправки форми
+    const loginForm = document.getElementById('login-form');
+
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();  // Зупиняємо відправку форми
+
+        // Перевірка, чи поля не порожні та чи валідні
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+
+        if (!emailInput.value || !passwordInput.value) {
+            alert('Будь ласка, заповніть всі поля!');
+        } else if (!emailInput.validity.valid || !passwordInput.validity.valid) {
+            alert('Будь ласка, перевірте правильність введених даних!');
+        } else {
+            // Якщо всі умови виконані, переходимо на нову сторінку
+            window.location.href = './money.html'; // Перехід на іншу сторінку в поточній вкладці
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
+// мані
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Зберігаємо історію транзакцій та статистику витрат
+    const transactionHistory = [];
+    const expenseCategoryCounts = {
+        food: 0,
+        transport: 0,
+        entertainment: 0,
+        shopping: 0,
+        bills: 0,
+        other: 0
+    };
+
+    // Оформлення графіка
+    const ctx = document.getElementById("expenseChart").getContext("2d");
+    const expenseChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: Object.keys(expenseCategoryCounts),
+            datasets: [{
+                data: Object.values(expenseCategoryCounts),
+                backgroundColor: ['#FF6F61', '#4CAF50', '#FFEB3B', '#2196F3', '#FF9800', '#9C27B0'],
+                borderColor: '#ffffff',
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (tooltipItem) {
+                            return `${tooltipItem.label}: ${tooltipItem.raw} грн`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+
+    // Обробник форми для витрат
+    const expenseForm = document.getElementById("expenseForm");
+    expenseForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const amount = parseFloat(document.getElementById("expenseAmount").value);
+        const description = document.getElementById("expenseDescription").value;
+        const date = document.getElementById("expenseDate").value;
+        const category = document.getElementById("expenseCategory").value;
+
+        // Перевірка на правильність вводу
+        if (isNaN(amount) || amount <= 0 || !description || !date || !category) {
+            alert("Будь ласка, заповніть всі поля правильно!");
+            return;
+        }
+
+        // Зберігаємо транзакцію
+        transactionHistory.push({ type: "Витрата", amount, description, date, category });
+
+        // Оновлюємо категорії витрат
+        expenseCategoryCounts[category] += amount;
+
+        // Оновлюємо діаграму
+        expenseChart.data.datasets[0].data = Object.values(expenseCategoryCounts);
+        expenseChart.update();
+
+        // Додаємо запис в історію
+        addTransactionToHistory("Витрата", amount, description, date, category);
+
+        // Очищаємо форму
+        expenseForm.reset();
+    });
+
+    // Обробник форми для доходу
+    const incomeForm = document.getElementById("incomeForm");
+    incomeForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const amount = parseFloat(document.getElementById("incomeAmount").value);
+        const description = document.getElementById("incomeDescription").value;
+        const date = document.getElementById("incomeDate").value;
+        const category = document.getElementById("incomeCategory").value;
+
+        // Перевірка на правильність вводу
+        if (isNaN(amount) || amount <= 0 || !description || !date || !category) {
+            alert("Будь ласка, заповніть всі поля правильно!");
+            return;
+        }
+
+        // Зберігаємо транзакцію
+        transactionHistory.push({ type: "Дохід", amount, description, date, category });
+
+        // Додаємо запис в історію
+        addTransactionToHistory("Дохід", amount, description, date, category);
+
+        // Очищаємо форму
+        incomeForm.reset();
+    });
+
+    // Функція для додавання запису до таблиці історії
+    function addTransactionToHistory(type, amount, description, date, category) {
+        const tableBody = document.querySelector("#transactionHistory tbody");
+        const row = document.createElement("tr");
+        row.innerHTML = `
+            <td>${type}</td>
+            <td>${amount} грн</td>
+            <td>${description}</td>
+            <td>${date}</td>
+            <td>${category}</td>
+        `;
+        tableBody.appendChild(row);
+    }
+});

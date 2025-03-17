@@ -23,24 +23,26 @@
             <nav class="nav">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <a href="#how-it-works" class="nav-link">Головна</a>
+                        <a href="#hero" class="nav-link">Головна</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#transaction-forms-wrapper" class="nav-link">Додати транзакцію</a>
+                        <a href="#highlights" class="nav-link">Фінансові можливості</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#reviews" class="nav-link">Історія операцій</a>
+                        <a href="#how-it-works" class="nav-link">Простий старт</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#reviews" class="nav-link">Статистика</a>
+                        <a href="#reviews" class="nav-link">Відгуки</a>
                     </li>
                 </ul>
-                <a href="#your-order" class="nav-shop-btn">Вхід</a>
+                <a href="#" class="nav-shop-btn js-open-login">Вхід</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero-section">
+
+
+    <section class="hero-section" id="hero">
         <div class="hero">
             <div class="container hero-container">
                 <div class="hero-text">
@@ -57,8 +59,8 @@
             </div>
     </section>
 
-    <section class="highlights">
-        <h2 class="visually-hidden">Highlights</h2>
+    <section class="highlights" id="highlights">
+        <h2 class="visually-hidden">Фінансові можливості"</h2>
         <div class="container">
             <div class="highlights-container">
                 <div class="card">
@@ -128,107 +130,131 @@
                     </li>
                     <li class="li-works-list">
                         <div class="text-works-container">
-                            Sit back and relax! Your
-                            <span class="span-works-list">fresh vegetables</span> basket will be
-                            delivered.
+                            Контролюйте 
+                            <span class="span-works-list">бюджет - </span> аналізуйте витрати та коригуйте фінансові плани.
                         </div>
                     </li>
                 </ol>
             </div>
         </div>
     </section>
+<section class="section-reviews" id="reviews">
+    <div class="container">
+        <h2 class="section-reviews-title">
+            Відгуки від наших
+            <span class="reviews-customer">клієнтів</span>
+        </h2>
+        <p class="section-reviews-p">
+            Слова наших клієнтів: враження та думки про якість нашого фінансового сервісу і підтримки на сайті.
+        </p>
+
+        <ul class="reviews-list">
+            <li class="reviews-item reviews-item-first">
+                <div class="div-reviews-img">
+                    <img class="reviews-img" src="./images/reviews01.jpg" alt="john wax" width="56" height="56" />
+                </div>
+
+                <div class="div-reviews-text">
+                    <h3 class="reviews-subtitle">John Wax</h3>
+                    <p class="reviews-p">
+                        Завдяки цьому сайту я навчився правильно управляти своїми фінансами. Планування бюджету стало
+                        значно простішим, а консультації з інвестування допомогли мені досягти реальних результатів!
+                    </p>
+                </div>
+            </li>
+
+            <li class="reviews-item reviews-item-second">
+                <div class="div-reviews-img">
+                    <img class="reviews-img" src="./images/reviews02.jpg" alt="victoria romashenko" width="56" height="56" />
+                </div>
+
+                <div class="div-reviews-text">
+                    <h3 class="reviews-subtitle">Victoria Romashenko</h3>
+                    <p class="reviews-p">
+                        Я завжди мала труднощі з плануванням своїх фінансів, але з цим сайтом все стало набагато
+                        простіше. Мені дуже подобається, як швидко я можу отримати фінансові поради та здійснити важливі
+                        фінансові кроки!
+                    </p>
+                </div>
+            </li>
+
+            <li class="reviews-item reviews-item-third">
+                <div class="div-reviews-img">
+                    <img class="reviews-img" src="./images/reviews03.jpg" alt="ihor trachuk" width="56" height="56" />
+                </div>
+
+                <div class="div-reviews-text">
+                    <h3 class="reviews-subtitle">Ihor Trachuk</h3>
+                    <p class="reviews-p">
+                        Цей сайт змінив моє ставлення до фінансів. Тепер я можу розумно інвестувати, управляти своїми
+                        заощадженнями та навіть планувати майбутнє. Це надзвичайно корисний інструмент для кожного, хто
+                        хоче контролювати свої фінанси.
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
 
 
-    <section class="transaction-forms-wrapper" id="transaction-forms-wrapper">
-        <div class="transaction-form">
-            <h2>Додати витрату</h2>
-            <form id="expenseForm">
-                <div>
-                    <label for="expenseAmount">Сума:</label>
-                    <input type="number" id="expenseAmount" name="amount" required placeholder="Введіть суму витрати" />
-                </div>
-                <div>
-                    <label for="expenseDescription">Опис:</label>
-                    <textarea id="expenseDescription" name="description" rows="4" required
-                        placeholder="Введіть опис витрати"></textarea>
-                </div>
-                <div>
-                    <label for="expenseDate">Дата:</label>
-                    <input type="date" id="expenseDate" name="date" required />
-                </div>
-                <div>
-                    <label for="expenseCategory">Категорія:</label>
-                    <select id="expenseCategory" name="category" required>
-                        <option value="food">Їжа</option>
-                        <option value="transport">Транспорт</option>
-                        <option value="entertainment">Розваги</option>
-                        <option value="shopping">Шопінг</option>
-                        <option value="bills">Платежі</option>
-                        <option value="other">Інше</option>
-                    </select>
-                </div>
-                <button type="submit" class="form-button">Додати витрату</button>
-            </form>
+
+
+<footer class="basement">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-info">
+                <a href="./index.html" class="logo">Money<span class="logo-span">Flow</span></a>
+                <p class="footer-text">
+                    Ваш незамінний інструмент для відстеження та управління витратами. Беріть під контроль свої витрати
+                    та заощадження вже сьогодні за допомогою нашого зручного менеджера витрат.
+                </p>
+            </div>
+
+            <div class="menu-contacts">
+        
+                <nav class="footer-menu">
+                    <ul class="menu-list">
+                        <li class="footer-item">
+                            <a class="link-footer" href="#hero">
+                                <p class="footer-anchor">Головна</p>
+                            </a>
+                        </li>
+                        
+                        <li class="footer-item">
+                            <a class="link-footer" href="#highlights">
+                                <p class="footer-anchor">Фінансові можливості</p>
+                            </a>
+                        </li>
+                        <li class="footer-item">
+                            <a class="link-footer" href="#how-it-works">
+                                <p class="footer-anchor">Простий старт</p>
+                            </a>
+                        </li>
+                        <li class="footer-item">
+                            <a class="link-footer" href="#reviews">
+                                <p class="footer-anchor">відгуки</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+            </div>
         </div>
 
-        <div class="transaction-form">
-            <h2>Додати дохід</h2>
-            <form id="incomeForm">
-                <div>
-                    <label for="incomeAmount">Сума:</label>
-                    <input type="number" id="incomeAmount" name="amount" required placeholder="Введіть суму доходу" />
-                </div>
-                <div>
-                    <label for="incomeDescription">Опис:</label>
-                    <textarea id="incomeDescription" name="description" rows="4" required
-                        placeholder="Введіть опис доходу"></textarea>
-                </div>
-                <div>
-                    <label for="incomeDate">Дата:</label>
-                    <input type="date" id="incomeDate" name="date" required />
-                </div>
-                <div>
-                    <label for="incomeCategory">Категорія:</label>
-                    <select id="incomeCategory" name="category" required>
-                        <option value="salary">Зарплата</option>
-                        <option value="bonus">Бонус</option>
-                        <option value="gift">Подарунок</option>
-                        <option value="other">Інше</option>
-                    </select>
-                </div>
-                <button type="submit" class="form-button">Додати дохід</button>
-            </form>
+        
+        <div class="footer-bottom">
+            <p>
+                <a class="policy-text" href="#">Політика конфіденційності</a> /
+                <a href="#">Налаштування cookie</a>
+            </p>
+            <p class="copyright">©Менеджер витрат 2025</p>
         </div>
+    </div>
+</footer>
 
-    </section>
-    <section class="transaction-history">
-        <h2>Історія операцій</h2>
-        <table id="transactionHistory">
-            <thead>
-                <tr>
-                    <th>Тип</th>
-                    <th>Сума</th>
-                    <th>Опис</th>
-                    <th>Дата</th>
-                    <th>Категорія</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Тут будуть відображатись записи -->
-            </tbody>
-        </table>
-    </section>
 
-    <section class="statistics-section">
-        <h2>Статистика</h2>
-        <p>Ця діаграма показує, скільки грошей ви витратили в кожній категорії. Це допоможе вам краще розуміти, куди
-            йдуть
-            ваші кошти та управляти своїм бюджетом.</p>
-        <div class="chart-container">
-            <canvas id="expenseChart"></canvas>
-        </div>
-    </section>
 
+<!-- !mobile-menu -->
 
     <div class="overlay js-menu-container" id="mobile-menu">
         <div class="mobile-menu">
@@ -241,23 +267,45 @@
                 <nav class="mobile-menu-nav">
                     <ul class="mobile-menu-list">
                         <li class="mobile-menu-item">
-                            <a href="#how-it-works" class="mobile-menu-link" href="">Головна</a>
+                            <a class="mobile-menu-link" href="#hero">Головна</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#transaction-forms-wrapper" class="mobile-menu-link" href="">Додати транзакцію</a>
+                            <a class="mobile-menu-link" href="#highlights" >Фінансові можливості</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#reviews" class="mobile-menu-link" href="">Історія операцій</a>
+                            <a class="mobile-menu-link" href="#how-it-works">Простий старт</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#reviews" class="mobile-menu-link" href="">Статистика</a>
+                            <a class="mobile-menu-link" href="#reviews">Відгуки</a>
                         </li>
                     </ul>
                 </nav>
-                <a class="shop" href="#your-order">Вхід</a>
+            <a href="#" class="shop js-open-login">Вхід</a>
             </div>
         </div>
     </div>
+
+<div class="modal js-login-modal">
+    <div class="modal-content">
+        <button class="modal-close js-close-login">&times;</button>
+        <div class="modal-header">
+            <h2>Вхід</h2>
+        </div>
+        <div class="modal-body">
+            <form id="login-form">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required
+                    pattern="([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\.([A-Za-z]{2,8})">
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required minlength="8">
+
+                <button type="submit" class="modal-button" id="submit-btn">Увійти</button>
+            </form>
+        </div>
+    </div>
+</div>
+    
     <script src="./js/script.js"></script>
 
 </body>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoneyFlow</title>
+    <link rel="stylesheet" href="./css/money.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+<header class="header">
+    <div class="container header-container">
+        <a href="./index.html" class="logo">Money<span class="logo-span">Flow</span></a>
+
+        <button type="button" class="btn-menu js-open-menu" aria-expanded="false" aria-controls="mobile-menu">
+            <svg width="32" height="32" class="icon-menu">
+                <use href="./icon/icons.svg#icon-burger" class="icon-logo"></use>
+            </svg>
+        </button>
+        <nav class="nav">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link">Головна</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#transaction-forms-wrapper" class="nav-link">Додати транзакцію</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#transaction-history" class="nav-link">Історія операцій</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#statistics-section" class="nav-link">Статистика</a>
+                </li>
+            </ul>
+            <a href="#your-order" class="nav-shop-btn">Вхід</a>
+        </nav>
+    </div>
+</header>
+
+<!-- 
+<section class="hero-section" id="hero">
+    <div class="hero">
+        <div class="container hero-container">
+            <div class="hero-text">
+                <h1 class="hero-title">Новий рівень контролю <span class="main-span">фінансів</span></h1>
+                <h2 class="budget-title">Відстежуйте доходи та витрати легко!</h2>
+                <p class="hero-deskr">
+                    Наш сайт допомагає аналізувати фінансові потоки, керувати бюджетом і
+                    планувати майбутні витрати
+                </p>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="./images/diagram-money.png" alt="diagram-money">
+        </div>
+</section> -->
+
+
+    <section class="transaction-forms-wrapper" id="transaction-forms-wrapper">
+        <div class="transaction-form">
+            <h2>Додати витрату</h2>
+            <form id="expenseForm">
+                <div>
+                    <label for="expenseAmount">Сума:</label>
+                    <input type="number" id="expenseAmount" name="amount" required placeholder="Введіть суму витрати" />
+                </div>
+                <div>
+                    <label for="expenseDescription">Опис:</label>
+                    <textarea id="expenseDescription" name="description" rows="4" required
+                        placeholder="Введіть опис витрати"></textarea>
+                </div>
+                <div>
+                    <label for="expenseDate">Дата:</label>
+                    <input type="date" id="expenseDate" name="date" required />
+                </div>
+                <div>
+                    <label for="expenseCategory">Категорія:</label>
+                    <select id="expenseCategory" name="category" required>
+                        <option value="food">Їжа</option>
+                        <option value="transport">Транспорт</option>
+                        <option value="entertainment">Розваги</option>
+                        <option value="shopping">Шопінг</option>
+                        <option value="bills">Платежі</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-button">Додати витрату</button>
+            </form>
+        </div>
+
+        <div class="transaction-form">
+            <h2>Додати дохід</h2>
+            <form id="incomeForm">
+                <div>
+                    <label for="incomeAmount">Сума:</label>
+                    <input type="number" id="incomeAmount" name="amount" required placeholder="Введіть суму доходу" />
+                </div>
+                <div>
+                    <label for="incomeDescription">Опис:</label>
+                    <textarea id="incomeDescription" name="description" rows="4" required
+                        placeholder="Введіть опис доходу"></textarea>
+                </div>
+                <div>
+                    <label for="incomeDate">Дата:</label>
+                    <input type="date" id="incomeDate" name="date" required />
+                </div>
+                <div>
+                    <label for="incomeCategory">Категорія:</label>
+                    <select id="incomeCategory" name="category" required>
+                        <option value="salary">Зарплата</option>
+                        <option value="bonus">Бонус</option>
+                        <option value="gift">Подарунок</option>
+                        <option value="other">Інше</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-button">Додати дохід</button>
+            </form>
+        </div>
+
+    </section>
+    <section class="transaction-history" id="transaction-history">
+        <h2>Історія операцій</h2>
+        <table id="transactionHistory">
+            <thead>
+                <tr>
+                    <th>Тип</th>
+                    <th>Сума</th>
+                    <th>Опис</th>
+                    <th>Дата</th>
+                    <th>Категорія</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Тут будуть відображатись записи -->
+            </tbody>
+        </table>
+    </section>
+
+    <section class="statistics-section" id="statistics-section">
+        <h2>Статистика</h2>
+        <p>Ця діаграма показує, скільки грошей ви витратили в кожній категорії. Це допоможе вам краще розуміти, куди
+            йдуть
+            ваші кошти та управляти своїм бюджетом.</p>
+        <div class="chart-container">
+            <canvas id="expenseChart"></canvas>
+        </div>
+    </section>
+    <footer class="basement">
+        <div class="container">
+            <div class="footer-content">
+                <!-- Логотип і текст -->
+                <div class="footer-info">
+                    <a class="footer-logo" href="./index.html">
+                        <svg class="footer-icons" width="168" height="16">
+                            <use href="/img/icons.svg#icon-logo"></use>
+                        </svg>
+                    </a>
+                    <p class="footer-text">
+                        Ваш незамінний інструмент для відстеження та управління витратами. Беріть під контроль свої
+                        витрати
+                        та заощадження вже сьогодні за допомогою нашого зручного менеджера витрат.
+                    </p>
+                </div>
+
+                <div class="menu-contacts">
+                    <!-- Меню -->
+                    <nav class="footer-menu">
+                        <ul class="menu-list">
+                            <li class="footer-item">
+                                <a class="link-footer" href="#how-it-works">
+                                    <p class="footer-anchor">як це працює</p>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a class="link-footer" href="#budgeting">
+                                    <p class="footer-anchor">бюджетування</p>
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a class="link-footer" href="#reviews">
+                                    <p class="footer-anchor">відгуки</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Контакти -->
+                    <address class="footer-contacts">
+                        <a class="footer-phone" href="tel:+380684439426">+380 (68) 443-94-26</a>
+                        <p class="footer-address">
+                            <a href="https://www.google.com/maps/search/?api=1&query=1678+S+Pioneer+Road+Salt+Lake+City+UT+84104"
+                                target="_blank" rel="noopener noreferrer">
+                                1678 S. Pioneer Road Salt <br />
+                                Lake City UT 84104
+                            </a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+
+            <!-- Політика та копірайт -->
+            <div class="footer-bottom">
+                <p>
+                    <a class="policy-text" href="#">Політика конфіденційності</a> /
+                    <a href="#">Налаштування cookie</a>
+                </p>
+                <p class="copyright">©Менеджер витрат 2023</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <div class="overlay js-menu-container" id="mobile-menu">
+        <div class="mobile-menu">
+            <div class="container mobile-menu-container">
+                <button class="mobile-menu-close js-close-menu">
+                    <svg class="mobile-close-svg" width="24" height="24">
+                        <use href="./icon/icons.svg#icon-close"></use>
+                    </svg>
+                </button>
+                <nav class="mobile-menu-nav">
+                    <ul class="mobile-menu-list">
+                        <li class="mobile-menu-item">
+                            <a href="#how-it-works" class="mobile-menu-link" href="">Головна</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#transaction-forms-wrapper" class="mobile-menu-link" href="">Додати транзакцію</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#reviews" class="mobile-menu-link" href="">Історія операцій</a>
+                        </li>
+                        <li class="mobile-menu-item">
+                            <a href="#reviews" class="mobile-menu-link" href="">Статистика</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a class="shop" href="#your-order">Вхід</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/script.js"></script>
+
+</body>
+
+</html>
