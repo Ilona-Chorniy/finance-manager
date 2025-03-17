@@ -501,7 +501,8 @@ button:hover {
 .transaction-history {
     background: linear-gradient(to bottom, #1b1794 35%, #0e6973 50%, #149b88 65%);
     padding: 60px 0;
-   
+    overflow-x: auto;
+    /* Додає скрол, якщо потрібно */
 }
 
 .transaction-history h2 {
@@ -515,8 +516,9 @@ button:hover {
 }
 
 #transactionHistory {
-    width: 100%;
-    max-width: 1000px;
+    max-width: 100%;
+    /* Забороняє вихід за межі */
+    min-width: 320px;
     margin: 0 auto;
     border-collapse: collapse;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -530,7 +532,7 @@ button:hover {
 #transactionHistory th {
     padding: 12px;
     text-align: left;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 #transactionHistory tbody tr {
@@ -545,7 +547,7 @@ button:hover {
 #transactionHistory td {
     padding: 12px;
     text-align: left;
-    font-size: 16px;
+    font-size: 14px;
     color: #333;
 }
 
@@ -558,14 +560,14 @@ button:hover {
     font-weight: 600;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     #transactionHistory {
-        font-size: 18px;
+        font-size: 14px;
     }
 
     #transactionHistory th,
     #transactionHistory td {
-        padding: 15px;
+        padding: 10px;
     }
 }
 
@@ -578,7 +580,12 @@ button:hover {
     #transactionHistory td {
         padding: 18px;
     }
+
+    #transactionHistory {
+        max-width: 1000px;
+    }
 }
+
 
 /* !STATISTICS SECTION */
 .statistics-section {
@@ -628,8 +635,8 @@ button:hover {
 
     #transactionHistory {
         width: 100%;
-       
-     
+
+
     }
 
     #transactionHistory th,
@@ -703,7 +710,7 @@ button:hover {
     margin-top: 10px;
     font-size: 14px;
     line-height: 1.4;
-    
+
 }
 
 .footer-item {
@@ -721,7 +728,7 @@ button:hover {
     text-transform: uppercase;
     transition: color 250ms ease-in-out, opacity 250ms ease-in-out;
     color: #ffffff;
-    
+
 }
 
 .menu-list {
@@ -740,7 +747,7 @@ button:hover {
 }
 
 .link-footer:hover {
-    color: #0d1465;     
+    color: #0d1465;
 }
 
 
@@ -750,12 +757,12 @@ button:hover {
     margin-top: 40px;
     font-size: 14px;
     color: #b0b0b0;
-   
-        }
+
+}
 
 .policy-text {
     color: #5ce1e6;
-   
+
 }
 
 .copyright {
@@ -798,9 +805,9 @@ button:hover {
         margin-bottom: 0;
     }
 
- .footer-text{
-    margin-top: 50px;
- }
+    .footer-text {
+        margin-top: 50px;
+    }
 
     .footer-menu {
         text-align: center;
@@ -1005,9 +1012,7 @@ button:hover {
 .chart-container {
     width: 100%;
     max-width: 600px;
-    /* Максимальна ширина діаграми */
     margin: 0 auto;
-    /* Центруємо діаграму */
     padding: 20px;
 }
 

@@ -893,7 +893,7 @@ body {
     margin-top: 10px;
     font-size: 14px;
     line-height: 1.4;
-    
+
 }
 
 .footer-item {
@@ -911,7 +911,7 @@ body {
     text-transform: uppercase;
     transition: color 250ms ease-in-out, opacity 250ms ease-in-out;
     color: #ffffff;
-    
+
 }
 
 .menu-list {
@@ -930,7 +930,7 @@ body {
 }
 
 .link-footer:hover {
-    color: #0d1465;     
+    color: #0d1465;
 }
 
 
@@ -940,12 +940,12 @@ body {
     margin-top: 40px;
     font-size: 14px;
     color: #b0b0b0;
-   
-        }
+
+}
 
 .policy-text {
     color: #5ce1e6;
-   
+
 }
 
 .copyright {
@@ -988,9 +988,9 @@ body {
         margin-bottom: 0;
     }
 
- .footer-text{
-    margin-top: 50px;
- }
+    .footer-text {
+        margin-top: 50px;
+    }
 
     .footer-menu {
         text-align: center;
@@ -1058,6 +1058,7 @@ body {
         justify-content: space-between;
     }
 }
+
 /* !mobile-menu */
 
 .mobile-menu {
