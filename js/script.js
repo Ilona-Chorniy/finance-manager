@@ -39,16 +39,24 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginModal = document.querySelector(".js-login-modal");
-    const openLoginBtn = document.querySelector(".js-open-login");
+    const openLoginBtns = document.querySelectorAll(".js-open-login"); // Виправлено для підтримки кількох кнопок
     const closeLoginBtn = document.querySelector(".js-close-login");
+    const loginForm = document.getElementById("login-form");
 
-    function toggleLoginModal() {
-        loginModal.classList.toggle("is-open"); // Додаємо або видаляємо клас is-open
+    if (!loginModal || !openLoginBtns.length || !closeLoginBtn || !loginForm) {
+        console.error("Не знайдено один із необхідних елементів!");
+        return;
     }
 
-    openLoginBtn.addEventListener("click", function (event) {
-        event.preventDefault();
-        toggleLoginModal();
+    function toggleLoginModal() {
+        loginModal.classList.toggle("is-open");
+    }
+
+    openLoginBtns.forEach(btn => {
+        btn.addEventListener("click", function (event) {
+            event.preventDefault();
+            toggleLoginModal();
+        });
     });
 
     closeLoginBtn.addEventListener("click", toggleLoginModal);
@@ -59,23 +67,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Додаємо обробник для відправки форми
-    const loginForm = document.getElementById('login-form');
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();  // Зупиняємо відправку форми
-
-        // Перевірка, чи поля не порожні та чи валідні
-        const emailInput = document.getElementById('email');
-        const passwordInput = document.getElementById('password');
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
 
         if (!emailInput.value || !passwordInput.value) {
-            alert('Будь ласка, заповніть всі поля!');
+            alert("Будь ласка, заповніть всі поля!");
         } else if (!emailInput.validity.valid || !passwordInput.validity.valid) {
-            alert('Будь ласка, перевірте правильність введених даних!');
+            alert("Будь ласка, перевірте правильність введених даних!");
         } else {
-            // Якщо всі умови виконані, переходимо на нову сторінку
-            window.location.href = './money.html'; // Перехід на іншу сторінку в поточній вкладці
+            window.location.href = "./money.html";
         }
     });
 });
