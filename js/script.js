@@ -92,9 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // мані
-
 document.addEventListener("DOMContentLoaded", function () {
-    // Зберігаємо історію транзакцій та статистику витрат
+    // Зберігаємо історію транзакцій та статистику витрат і доходів
     const transactionHistory = [];
     const expenseCategoryCounts = {
         food: 0,
@@ -104,10 +103,24 @@ document.addEventListener("DOMContentLoaded", function () {
         bills: 0,
         other: 0
     };
+    const incomeCategoryCounts = {
+        salary: 0,
+        bonus: 0,
+        gift: 0,
+        other: 0
+    };
 
-    // Оформлення графіка
-    const ctx = document.getElementById("expenseChart").getContext("2d");
-    const expenseChart = new Chart(ctx, {
+    // Кольори для доходів
+    const incomeColors = {
+        salary: "#36A2EB",
+        bonus: "#4CAF50",
+        gift: "#FF9800",
+        other: "#9C27B0"
+    };
+
+    // Ініціалізація кругової діаграми витрат
+    const expenseCtx = document.getElementById("expenseChart").getContext("2d");
+    const expenseChart = new Chart(expenseCtx, {
         type: "pie",
         data: {
             labels: Object.keys(expenseCategoryCounts),
@@ -135,6 +148,33 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    // Ініціалізація стовпчастої діаграми доходів
+    const incomeCtx = document.getElementById("incomeChart").getContext("2d");
+    const incomeChart = new Chart(incomeCtx, {
+        type: "bar",
+        data: {
+            labels: Object.keys(incomeCategoryCounts),
+            datasets: [{
+                label: "Доходи",
+                data: Object.values(incomeCategoryCounts),
+                backgroundColor: Object.values(incomeColors), // Додаємо кольори
+                borderColor: "#ffffff",
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
     // Обробник форми для витрат
     const expenseForm = document.getElementById("expenseForm");
     expenseForm.addEventListener("submit", function (event) {
@@ -145,7 +185,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const date = document.getElementById("expenseDate").value;
         const category = document.getElementById("expenseCategory").value;
 
-        // Перевірка на правильність вводу
         if (isNaN(amount) || amount <= 0 || !description || !date || !category) {
             alert("Будь ласка, заповніть всі поля правильно!");
             return;
@@ -157,7 +196,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Оновлюємо категорії витрат
         expenseCategoryCounts[category] += amount;
 
-        // Оновлюємо діаграму
+        // Оновлюємо діаграму витрат
         expenseChart.data.datasets[0].data = Object.values(expenseCategoryCounts);
         expenseChart.update();
 
@@ -168,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
         expenseForm.reset();
     });
 
-    // Обробник форми для доходу
+    // Обробник форми для доходів
     const incomeForm = document.getElementById("incomeForm");
     incomeForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -178,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const date = document.getElementById("incomeDate").value;
         const category = document.getElementById("incomeCategory").value;
 
-        // Перевірка на правильність вводу
         if (isNaN(amount) || amount <= 0 || !description || !date || !category) {
             alert("Будь ласка, заповніть всі поля правильно!");
             return;
@@ -186,6 +224,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Зберігаємо транзакцію
         transactionHistory.push({ type: "Дохід", amount, description, date, category });
+
+        // Оновлюємо категорії доходів
+        incomeCategoryCounts[category] += amount;
+
+        // Оновлюємо діаграму доходів
+        incomeChart.data.datasets[0].data = Object.values(incomeCategoryCounts);
+        incomeChart.update();
 
         // Додаємо запис в історію
         addTransactionToHistory("Дохід", amount, description, date, category);

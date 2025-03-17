@@ -498,10 +498,10 @@ button:hover {
 
 
 /* !HISTORY */
-/* !TRANSACTION HISTORY */
 .transaction-history {
     background: linear-gradient(to bottom, #1b1794 35%, #0e6973 50%, #149b88 65%);
     padding: 60px 0;
+   
 }
 
 .transaction-history h2 {
@@ -582,7 +582,66 @@ button:hover {
 
 /* !STATISTICS SECTION */
 .statistics-section {
-    background: linear-gradient(to bottom, #1b1794 35%, #0e6973 50%, #149b88 65%);
+    background-color: #96dcf4;
+    padding: 60px 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.statistics-section h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.statistics-section p {
+    font-size: 18px;
+    margin-bottom: 40px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.chart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+@media (min-width: 768px) {
+    .statistics-section h2 {
+        font-size: 48px;
+    }
+
+    .statistics-section p {
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .transaction-history {
+        padding: 20px;
+    }
+
+    #transactionHistory {
+        width: 100%;
+       
+     
+    }
+
+    #transactionHistory th,
+    #transactionHistory td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* !STATISTICS SECTION */
+.statistics-section {
+    background-color: #96dcf4;
     padding: 60px 20px;
     color: #fff;
     text-align: center;
@@ -644,7 +703,7 @@ button:hover {
     margin-top: 10px;
     font-size: 14px;
     line-height: 1.4;
-
+    
 }
 
 .footer-item {
@@ -662,7 +721,7 @@ button:hover {
     text-transform: uppercase;
     transition: color 250ms ease-in-out, opacity 250ms ease-in-out;
     color: #ffffff;
-
+    
 }
 
 .menu-list {
@@ -681,7 +740,7 @@ button:hover {
 }
 
 .link-footer:hover {
-    color: #0d1465;
+    color: #0d1465;     
 }
 
 
@@ -691,12 +750,12 @@ button:hover {
     margin-top: 40px;
     font-size: 14px;
     color: #b0b0b0;
-
-}
+   
+        }
 
 .policy-text {
     color: #5ce1e6;
-
+   
 }
 
 .copyright {
@@ -739,9 +798,9 @@ button:hover {
         margin-bottom: 0;
     }
 
-    .footer-text {
-        margin-top: 50px;
-    }
+ .footer-text{
+    margin-top: 50px;
+ }
 
     .footer-menu {
         text-align: center;
