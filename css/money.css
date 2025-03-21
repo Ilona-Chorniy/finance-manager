@@ -991,7 +991,7 @@ canvas {
     right: 20px;
     width: 50px;
     height: 50px;
-    background-color: #007bff;
+    background-color: #0d1465;
     border: none;
     border-radius: 50%;
     display: flex;
@@ -1014,5 +1014,10 @@ canvas {
 }
 
 .scroll-to-top:hover {
-    background-color: #0056b3;
+    background-color: #2ccee0;
+    ;
+}
+
+#scrollToTopBtn:hover {
+    transform: translateY(-5px);
 }
