@@ -16,17 +16,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     menuLinks.forEach(link => {
         link.addEventListener("click", function (event) {
-            const targetId = link.getAttribute("href").substring(1); 
+            // Отримуємо ID секції, на яку потрібно перейти
+            const targetId = link.getAttribute("href").substring(1); // Виключаємо "#" з href
             const targetSection = document.getElementById(targetId);
 
             if (targetSection) {
-    
+                // Закриваємо меню
                 menuContainer.classList.remove("is-open");
 
-              
+                // Плавно прокручуємо до секції
                 window.scrollTo({
-                    top: targetSection.offsetTop, 
-                    behavior: "smooth"
+                    top: targetSection.offsetTop, // Позиція секції
+                    behavior: "smooth" // Плавний скролінг
                 });
             }
         });
@@ -38,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const loginModal = document.querySelector(".js-login-modal");
-    const openLoginBtns = document.querySelectorAll(".js-open-login");
+    const openLoginBtns = document.querySelectorAll(".js-open-login"); // Виправлено для підтримки кількох кнопок
     const closeLoginBtn = document.querySelector(".js-close-login");
     const loginForm = document.getElementById("login-form");
 
@@ -159,9 +160,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
+
+
+
+
+
+
+
 // мані
 document.addEventListener("DOMContentLoaded", function () {
-
+    // Зберігаємо історію транзакцій та статистику витрат і доходів
     const transactionHistory = [];
     const expenseCategoryCounts = {
         food: 0,
@@ -178,7 +186,7 @@ document.addEventListener("DOMContentLoaded", function () {
         other: 0
     };
 
-
+    // Кольори для доходів
     const incomeColors = {
         salary: "#36A2EB",
         bonus: "#4CAF50",
@@ -186,7 +194,7 @@ document.addEventListener("DOMContentLoaded", function () {
         other: "#9C27B0"
     };
 
-    // діаграма витрат
+    // Ініціалізація кругової діаграми витрат
     const expenseCtx = document.getElementById("expenseChart").getContext("2d");
     const expenseChart = new Chart(expenseCtx, {
         type: "pie",
@@ -219,7 +227,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-//діаграма доходів
+// Ініціалізація стовпчастої діаграми доходів
 const incomeCtx = document.getElementById("incomeChart").getContext("2d");
 const incomeChart = new Chart(incomeCtx, {
     type: "bar",
@@ -228,7 +236,7 @@ const incomeChart = new Chart(incomeCtx, {
         datasets: [{
             label: "Доходи",
             data: Object.values(incomeCategoryCounts),
-            backgroundColor: Object.values(incomeColors),
+            backgroundColor: Object.values(incomeColors), // Додаємо кольори
             borderColor: "#ffffff",
             borderWidth: 1
         }]
@@ -239,12 +247,12 @@ const incomeChart = new Chart(incomeCtx, {
             y: {
                 beginAtZero: true,
                 ticks: {
-                    color: '#ffffff' 
+                    color: '#ffffff' // Колір тексту на осі Y
                 }
             },
             x: {
                 ticks: {
-                    color: '#ffffff' 
+                    color: '#ffffff' // Колір тексту на осі X
                 }
             }
         },
@@ -255,6 +263,9 @@ const incomeChart = new Chart(incomeCtx, {
         }
     }
 });
+
+
+    // Обробник форми для витрат
     const expenseForm = document.getElementById("expenseForm");
     expenseForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -264,20 +275,26 @@ const incomeChart = new Chart(incomeCtx, {
         const date = document.getElementById("expenseDate").value;
         const category = document.getElementById("expenseCategory").value;
 
+    
 
+        // Зберігаємо транзакцію
         transactionHistory.push({ type: "Витрата", amount, description, date, category });
+
+        // Оновлюємо категорії витрат
         expenseCategoryCounts[category] += amount;
 
+        // Оновлюємо діаграму витрат
         expenseChart.data.datasets[0].data = Object.values(expenseCategoryCounts);
         expenseChart.update();
 
+        // Додаємо запис в історію
         addTransactionToHistory("Витрата", amount, description, date, category);
 
-    
+        // Очищаємо форму
         expenseForm.reset();
     });
 
-
+    // Обробник форми для доходів
     const incomeForm = document.getElementById("incomeForm");
     incomeForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -288,23 +305,24 @@ const incomeChart = new Chart(incomeCtx, {
         const category = document.getElementById("incomeCategory").value;
 
 
-     
+        // Зберігаємо транзакцію
         transactionHistory.push({ type: "Дохід", amount, description, date, category });
 
-        
+        // Оновлюємо категорії доходів
         incomeCategoryCounts[category] += amount;
 
-       
+        // Оновлюємо діаграму доходів
         incomeChart.data.datasets[0].data = Object.values(incomeCategoryCounts);
         incomeChart.update();
 
-       
+        // Додаємо запис в історію
         addTransactionToHistory("Дохід", amount, description, date, category);
 
-       
+        // Очищаємо форму
         incomeForm.reset();
     });
 
+    // Функція для додавання запису до таблиці історії
     function addTransactionToHistory(type, amount, description, date, category) {
         const tableBody = document.querySelector("#transactionHistory tbody");
         const row = document.createElement("tr");

@@ -497,10 +497,9 @@ button:hover {
 
 /* !HISTORY */
 .transaction-history {
-    /* background: linear-gradient(to bottom, #1b1794 35%, #0e6973 50%, #149b88 65%); */
     padding: 60px 0;
     overflow-x: auto;
-   
+
 }
 
 .transaction-history h2 {
@@ -590,11 +589,11 @@ button:hover {
     padding: 60px 20px;
     color: #fff;
     text-align: center;
-   
+
 }
 
 
-#expenseChart{
+#expenseChart {
     color: #000712;
 }
 
