@@ -25,9 +25,7 @@
             </button>
             <nav class="nav">
                 <ul class="nav-list">
-                    <!-- <li class="nav-item">
-                        <a href="#hero" class="nav-link">Головна</a>
-                    </li> -->
+
                     <li class="nav-item">
                         <a href="#highlights" class="nav-link">Фінансові можливості</a>
                     </li>
@@ -39,6 +37,8 @@
                     </li>
                 </ul>
                 <a href="#" class="nav-shop-btn js-open-login">Вхід</a>
+                <a href="#" class="nav-shop-btn js-open-register">Реєстрація</a>
+
             </nav>
         </div>
     </header>
@@ -216,12 +216,6 @@
                 <nav class="footer-menu">
                     <ul class="menu-list">
                         <li class="footer-item">
-                            <a class="link-footer" href="#hero">
-                                <p class="footer-anchor">Головна</p>
-                            </a>
-                        </li>
-                        
-                        <li class="footer-item">
                             <a class="link-footer" href="#highlights">
                                 <p class="footer-anchor">Фінансові можливості</p>
                             </a>
@@ -262,9 +256,7 @@
                 </button>
                 <nav class="mobile-menu-nav">
                     <ul class="mobile-menu-list">
-                        <li class="mobile-menu-item">
-                            <a class="mobile-menu-link" href="#hero">Головна</a>
-                        </li>
+            
                         <li class="mobile-menu-item">
                             <a class="mobile-menu-link" href="#highlights" >Фінансові можливості</a>
                         </li>
@@ -276,10 +268,12 @@
                         </li>
                     </ul>
                 </nav>
-            <a href="#" class="shop js-open-login">Вхід</a>
+            <a href="#" class="shop nav-shop js-open-login">Вхід</a>
+            <a href="#" class="shop js-open-register">Реєстрація</a>
             </div>
         </div>
     </div>
+
 <div class="modal js-login-modal">
     <div class="modal-content">
         <button class="modal-close js-close-login">&times;</button>
@@ -301,6 +295,64 @@
     </div>
 </div>
 
+<div class="modal js-register-modal">
+    <div class="modal-content">
+        <button class="modal-close js-close-register">&times;</button>
+        <div class="modal-header">
+            <h2>Реєстрація</h2>
+        </div>
+        <div class="modal-body">
+            <form id="register-form">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required minlength="2">
+
+                <label for="email">Email:</label>
+                <input type="email" id="register-email" name="email" required
+                    pattern="([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\.([A-Za-z]{2,8})">
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="register-password" name="password" required minlength="8">
+
+                <label for="confirm-password">Підтвердіть пароль:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required minlength="8">
+
+                <button type="submit" class="modal-button" id="register-btn">Зареєструватися</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal js-register-modal">
+    <div class="modal-content">
+        <button class="modal-close js-close-register">&times;</button>
+        <div class="modal-header">
+            <h2>Реєстрація</h2>
+        </div>
+        <div class="modal-body">
+            <form id="register-form">
+                <label for="name">Ім'я:</label>
+                <input type="text" id="name" name="name" required minlength="2">
+
+                <label for="email">Email:</label>
+                <input type="email" id="register-email" name="email" required
+                    pattern="([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\.([A-Za-z]{2,8})">
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="register-password" name="password" required minlength="8">
+
+                <label for="confirm-password">Підтвердіть пароль:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required minlength="8">
+
+                <button type="submit" class="modal-button" id="register-btn">Зареєструватися</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<button id="scrollToTopBtn" class="scroll-to-top">
+    <svg width="24" height="24">
+        <use href="./icon/icons.svg#icon-point-up"></use>
+    </svg>
+</button>
     
     <script src="./js/script.js"></script>
 

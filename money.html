@@ -7,6 +7,7 @@
     <title>MoneyFlow</title>
     <link rel="stylesheet" href="./css/money.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -23,9 +24,7 @@
         <nav class="nav">
             <ul class="nav-list">
         
-                <li class="nav-item">
-                    <a href="#transaction-forms-wrapper" class="nav-link">Додати транзакцію</a>
-                </li>
+    
                 <li class="nav-item">
                     <a href="#transaction-history" class="nav-link">Історія операцій</a>
                 </li>
@@ -37,25 +36,6 @@
         </nav>
     </div>
 </header>
-
-<!-- 
-<section class="hero-section" id="hero">
-    <div class="hero">
-        <div class="container hero-container">
-            <div class="hero-text">
-                <h1 class="hero-title">Новий рівень контролю <span class="main-span">фінансів</span></h1>
-                <h2 class="budget-title">Відстежуйте доходи та витрати легко!</h2>
-                <p class="hero-deskr">
-                    Наш сайт допомагає аналізувати фінансові потоки, керувати бюджетом і
-                    планувати майбутні витрати
-                </p>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="./images/diagram-money.png" alt="diagram-money">
-        </div>
-</section> -->
-
 
     <section class="transaction-forms-wrapper" id="transaction-forms-wrapper">
         <div class="transaction-form">
@@ -77,12 +57,12 @@
                 <div>
                     <label for="expenseCategory">Категорія:</label>
                     <select id="expenseCategory" name="category" required>
-                        <option value="food">Їжа</option>
-                        <option value="transport">Транспорт</option>
-                        <option value="entertainment">Розваги</option>
-                        <option value="shopping">Шопінг</option>
-                        <option value="bills">Платежі</option>
-                        <option value="other">Інше</option>
+                        <option value="Їжа">Їжа</option>
+                        <option value="Транспорт">Транспорт</option>
+                        <option value="Розваги">Розваги</option>
+                        <option value="Шопінг">Шопінг</option>
+                        <option value="Платежі">Платежі</option>
+                        <option value="Інше">Інше</option>
                     </select>
                 </div>
                 <button type="submit" class="form-button">Додати витрату</button>
@@ -108,10 +88,10 @@
                 <div>
                     <label for="incomeCategory">Категорія:</label>
                     <select id="incomeCategory" name="category" required>
-                        <option value="salary">Зарплата</option>
-                        <option value="bonus">Бонус</option>
-                        <option value="gift">Подарунок</option>
-                        <option value="other">Інше</option>
+                        <option value="Зарплата">Зарплата</option>
+                        <option value="Бонус">Бонус</option>
+                        <option value="Подарунок">Подарунок</option>
+                        <option value="Інше">Інше</option>
                     </select>
                 </div>
                 <button type="submit" class="form-button">Додати дохід</button>
@@ -167,24 +147,19 @@
 
                 <nav class="footer-menu">
                     <ul class="menu-list">
-                        <li class="footer-item">
-                            <a class="link-footer" href="#hero">
-                                <p class="footer-anchor">Головна</p>
-                            </a>
-                        </li>
 
                         <li class="footer-item">
-                            <a class="link-footer" href="#highlights">
+                            <a class="link-footer" href="#transaction-forms-wrapper">
                                 <p class="footer-anchor">Додати транзакцію</p>
                             </a>
                         </li>
                         <li class="footer-item">
-                            <a class="link-footer" href="#how-it-works">
+                            <a class="link-footer" href="#transaction-history">
                                 <p class="footer-anchor">Історія операцій</p>
                             </a>
                         </li>
                         <li class="footer-item">
-                            <a class="link-footer" href="#reviews">
+                            <a class="link-footer" href="#statistics-section">
                                 <p class="footer-anchor">Статистика</p>
                             </a>
                         </li>
@@ -217,14 +192,12 @@
                 </button>
                 <nav class="mobile-menu-nav">
                     <ul class="mobile-menu-list">
+                
                         <li class="mobile-menu-item">
-                            <a href="#transaction-forms-wrapper" class="mobile-menu-link" href="">Додати транзакцію</a>
+                            <a href="#transaction-history"mobile-menu-link" href="">Історія операцій</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#reviews" class="mobile-menu-link" href="">Історія операцій</a>
-                        </li>
-                        <li class="mobile-menu-item">
-                            <a href="#reviews" class="mobile-menu-link" href="">Статистика</a>
+                            <a href="#statistics-section" class="mobile-menu-link" href="">Статистика</a>
                         </li>
                     </ul>
                 </nav>
@@ -232,7 +205,11 @@
             </div>
         </div>
     </div>
-
+<button id="scrollToTopBtn" class="scroll-to-top">
+    <svg width="24" height="24">
+        <use href="./icon/icons.svg#icon-point-up"></use>
+    </svg>
+</button>
     <script src="./js/script.js"></script>
 
 </body>
