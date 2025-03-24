@@ -1275,14 +1275,13 @@ body {
     display: block;
     font-size: 14px;
     font-weight: 600;
-    color: #0915bd;
+    color: #fbfbfb;
     margin-bottom: 6px;
     text-align: left;
     width: 100%;
     transition: color 250ms ease-in-out;
 }
 
-/* Стилі для інпутів */
 .modal-body input {
     display: block;
     width: 100%;
@@ -1291,43 +1290,16 @@ body {
     font-size: 14px;
     border-radius: 30px;
     outline: none;
-    border: 1px solid #0d1465;
-    /* Синя рамка за замовчуванням */
+    border: 1px solid #0915bd;
     background-color: transparent;
-    transition: border-color 250ms ease-in-out, background-color 250ms ease-in-out;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms ease-in-out;
 }
 
-/* Стан фокусу */
-.modal-body input:focus {
-    border-color: #2ccee0;
+.modal-body input::placeholder {
+    font-size: 14px;
+    color: #ccc;
 }
 
-/* Валідація: правильне значення */
-.modal-body input:valid {
-    border-color: #3cbc81;
-    /* Зелена рамка */
-    background-color: #e8f5e9;
-}
-
-/* Валідація: неправильне значення */
-.modal-body input:invalid {
-    border-color: #e74a3b;
-    /* Червона рамка */
-    background-color: #fce4ec;
-}
-
-/* Стиль для міток при фокусі та валідації */
-.modal-body input:focus~label {
-    color: #2ccee0;
-}
-
-.modal-body input:valid~label {
-    color: #3cbc81;
-}
-
-.modal-body input:invalid~label {
-    color: #e74a3b;
-}
 
 .modal-button {
     background-color: #0d1465;
@@ -1346,6 +1318,15 @@ body {
     background-color: #fbfbfb;
     color: #0d1465;
     transform: scale(1.05);
+}
+.modal-body input:valid {
+    border-color: #3cbc81;
+    background-color: #e8f5e9;
+}
+
+.modal-body input:invalid {
+    border-color: #e74a3b;
+    background-color: #fce4ec;
 }
 
 /* Кнопка вгору*/
@@ -1379,8 +1360,9 @@ body {
 }
 
 .scroll-to-top:hover {
-    background-color: #2ccee0;;
+    background-color: #2ccee0;
 }
 #scrollToTopBtn:hover {
     transform: translateY(-5px);
+   
 }

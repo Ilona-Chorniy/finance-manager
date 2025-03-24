@@ -224,6 +224,11 @@
                     <nav class="footer-menu">
                         <ul class="menu-list">
                             <li class="footer-item">
+                                <a class="link-footer" href="#hero">
+                                    <p class="footer-anchor">Головна</p>
+                                </a>
+                            </li>
+                            <li class="footer-item">
                                 <a class="link-footer" href="#highlights">
                                     <p class="footer-anchor">Фінансові можливості</p>
                                 </a>
@@ -312,33 +317,8 @@
             <div class="modal-body">
                 <form id="register-form">
                     <label for="name">Ім'я:</label>
-                    <input type="text" id="name" name="name" required minlength="2">
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="register-email" name="email" required
-                        pattern="([A-Za-z0-9_.-]+)@([A-Za-z0-9_.-]+)\.([A-Za-z]{2,8})">
-
-                    <label for="password">Пароль:</label>
-                    <input type="password" id="register-password" name="password" required minlength="8">
-
-                    <label for="confirm-password">Підтвердіть пароль:</label>
-                    <input type="password" id="confirm-password" name="confirm-password" required minlength="8">
-
-                    <button type="submit" class="modal-button" id="register-btn">Зареєструватися</button>
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="modal js-register-modal">
-        <div class="modal-content">
-            <button class="modal-close js-close-register">&times;</button>
-            <div class="modal-header">
-                <h2>Реєстрація</h2>
-            </div>
-            <div class="modal-body">
-                <form id="register-form">
-                    <label for="name">Ім'я:</label>
-                    <input type="text" id="name" name="name" required minlength="2">
+                    <input type="text" id="name" name="name" required minlength="2"
+                     pattern="^[^0-9][a-zA-Zа-яА-ЯіїєґІЇЄҐa-zA-Z0-9\s'\-]*$">
 
                     <label for="email">Email:</label>
                     <input type="email" id="register-email" name="email" required

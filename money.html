@@ -23,10 +23,6 @@
             </button>
             <nav class="nav">
                 <ul class="nav-list">
-
-                    <li class="nav-item">
-                        <a href="#transaction-forms-wrapper" class="nav-link">Додати транзакцію</a>
-                    </li>
                     <li class="nav-item">
                         <a href="#transaction-history" class="nav-link">Історія операцій</a>
                     </li>
@@ -38,25 +34,6 @@
             </nav>
         </div>
     </header>
-
-    <!-- 
-<section class="hero-section" id="hero">
-    <div class="hero">
-        <div class="container hero-container">
-            <div class="hero-text">
-                <h1 class="hero-title">Новий рівень контролю <span class="main-span">фінансів</span></h1>
-                <h2 class="budget-title">Відстежуйте доходи та витрати легко!</h2>
-                <p class="hero-deskr">
-                    Наш сайт допомагає аналізувати фінансові потоки, керувати бюджетом і
-                    планувати майбутні витрати
-                </p>
-            </div>
-        </div>
-        <div class="hero-image">
-            <img src="./images/diagram-money.png" alt="diagram-money">
-        </div>
-</section> -->
-
 
     <section class="transaction-forms-wrapper" id="transaction-forms-wrapper">
         <div class="transaction-form">
@@ -170,23 +147,17 @@
                     <nav class="footer-menu">
                         <ul class="menu-list">
                             <li class="footer-item">
-                                <a class="link-footer" href="#hero">
-                                    <p class="footer-anchor">Головна</p>
-                                </a>
-                            </li>
-
-                            <li class="footer-item">
-                                <a class="link-footer" href="#highlights">
+                                <a class="link-footer" href="#transaction-forms-wrapper">
                                     <p class="footer-anchor">Додати транзакцію</p>
                                 </a>
                             </li>
                             <li class="footer-item">
-                                <a class="link-footer" href="#how-it-works">
+                                <a class="link-footer" href="#transaction-history">
                                     <p class="footer-anchor">Історія операцій</p>
                                 </a>
                             </li>
                             <li class="footer-item">
-                                <a class="link-footer" href="#reviews">
+                                <a class="link-footer" href="#statistics-section">
                                     <p class="footer-anchor">Статистика</p>
                                 </a>
                             </li>
@@ -223,10 +194,10 @@
                             <a href="#transaction-forms-wrapper" class="mobile-menu-link" href="">Додати транзакцію</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#reviews" class="mobile-menu-link" href="">Історія операцій</a>
+                            <a href="#transaction-history" class="mobile-menu-link" href="">Історія операцій</a>
                         </li>
                         <li class="mobile-menu-item">
-                            <a href="#reviews" class="mobile-menu-link" href="">Статистика</a>
+                            <a href="#statistics-section" class="mobile-menu-link" href="">Статистика</a>
                         </li>
                     </ul>
                 </nav>
@@ -235,8 +206,8 @@
         </div>
     </div>
 
-<button id="scrollToTopBtn" class="scroll-to-top">
-    <svg width="24" height="24">
+<button id="scrollToTopBtn" class="scroll-to-top-btn" aria-label="Повернутися наверх">
+    <svg class="icon">
         <use href="./icon/icons.svg#icon-up"></use>
     </svg>
 </button>

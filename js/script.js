@@ -163,6 +163,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+//     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+// // Показуємо кнопку при прокручуванні вниз
+// window.onscroll = function () {
+//     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+//         scrollToTopBtn.style.display = "block";
+//     } else {
+//         scrollToTopBtn.style.display = "none";
+//     }
+// };
+
+// // Прокручуємо до верху при натисканні на кнопку
+// scrollToTopBtn.onclick = function () {
+//     window.scrollTo({
+//         top: 0,
+//         behavior: "smooth"
+//     });
+// };
+
+
+
 
 
 

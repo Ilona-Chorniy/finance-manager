@@ -985,39 +985,33 @@ canvas {
 
 /* Кнопка вгору*/
 
-.scroll-to-top {
+.scroll-to-top-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 50px;
-    height: 50px;
     background-color: #0d1465;
+    color: white;
     border: none;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.scroll-to-top.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1);
-}
-
-.scroll-to-top svg {
-    fill: white;
-}
-
-.scroll-to-top:hover {
+.scroll-to-top-btn:hover {
     background-color: #2ccee0;
-    ;
+    transform: translateY(-5px);
 }
 
-#scrollToTopBtn:hover {
-    transform: translateY(-5px);
+.scroll-to-top-btn .icon {
+    width: 24px;
+    height: 24px;
+    fill: white;
 }
