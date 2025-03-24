@@ -161,8 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
-
 //     const scrollToTopBtn = document.getElementById('scrollToTopBtn');
 
 // // Показуємо кнопку при прокручуванні вниз
